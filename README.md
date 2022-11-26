@@ -14,10 +14,7 @@ Dataset yang digunakan dalam project ini adalah dataset 'online-shoppers-intenti
 
 ## Prerequisites
 
-Numpy version: 1.21.5
-
-Pandas version: 1.4.2
-
-Matplotlib version: 3.5.1
-
-Seaborn version: 0.11.2
+- Numpy version: 1.21.5
+- Pandas version: 1.4.2
+- Matplotlib version: 3.5.1
+- Seaborn version: 0.11.2

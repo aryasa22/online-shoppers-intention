@@ -125,3 +125,41 @@ Berdasarkan business insight di atas, terdapat beberapa rekomendasi yang dapat d
     <li>Memberikan pelayanan terbaik kepada customer dan membuat program-program loyality customer secara periodik agar returning visitor banyak melakukan pembelian produk.</li>
     <li>Memanfaatkan pemasaran produk di hari-hari istimewa, seperti Valentine's Day, Mother's Day, Christmas & New Year, dengan memberikan promo/diskon atau special offer kepada customer untuk meningkatkan penjualan di hari-hari istimewa.</li>
 </ol>
+
+## **Preprocessing**
+
+Tahap preprocessing terdiri dari dua bagian yaitu Data Cleansing dan Feature Engineering.
+
+### **Data Cleansing**
+
+#### **Missing Values dan Duplicated Rows**
+Dataset yang kami gunakan tidak memiliki missing value, sehingga tidak perlu penanganan apapun terhadap missing value. Dataset memiliki 125 baris duplikat. Baris-baris tersebut telah dihapus pada tahap ini.
+
+#### **Handling Outliers**
+Tahap awal penanganan outlier dimulai dengan mencoba menghilangkan outlier pada fitur-fitur numerik. Namun setelah outlier dihapus, ternyata banyak record untuk target (1) yang hilang. Kami memutuskan untuk mempertahankan outlier karena melihat indikasi outlier-outlier tersebut merupakan pattern pada data.
+
+#### **Feature Encoding**
+Proses feature encoding ini bertujuan untuk mengubah fitur-fitur
+kategorik menjadi angka (numerik) agar bisa dimengerti oleh model. Fitur-fitur yang diencoding adalah Month, VisitorType, OperatingSystems, Browser, Region, Weekend, Revenue.
+
+#### **Feature Transformation**
+Karena fitur-fitur numerik pada dataset sebagian besar tidak berdistribusi normal, pada tahap ini dilakukan transformasi Yeo Johnson (transformasi logaritma tidak dipilih karena semua fotur mengandung 0). Kemudian dilakukan feature scaling menggunakan MinMaxScaler dari Scikit Learn.
+
+#### **Imbalance Handling**
+Perbandingan banyaknya records target 0 dengan 1 adalah 80:15, untuk itu dilakukan sedikit over sampling sehingga perbandingannya menjadi 2:1 agar targe 1 tidak dianggap tidak penting oleh model dan juga tidak overfitting.
+
+### **Feature Engneering**
+#### **Feature Selection**
+Tahap fitur selection bertujuan untuk membuang fitur-fitur yang tidak relevan ataupun yang redundan. Fitur-fitur yan dibuang pada tahap ini adalah ProductRelated_Duration, BounceRates, dan VisitorType.
+
+#### **Feature Extraction**
+Feature extraction bertujuan untuk membuat fitur baru dari fitur-fitur yang sudah ada. Namun, dalam project ini kami tidak melakukan feature extraction.
+
+#### **Additional Features**
+Berikut rekomendasi fitur-fitur yang jika tersedia kami yakin dapat membantu melakukan prediksi.
+
+- Promotion Day (apakah sesi dilakukan pada saat hari-hari promosi seperti tanggal cantik atau yang lainnya)
+- Internet Speed (ini berguna untuk menentukan apakah perlu
+menyesuaikan tampilan website untuk visitor dengan internet low speed, karena laman yang lama dimuat cenderung membuat visitor meninggalkan laman dengan cepat)
+- ProductReview (berapa sering dan berapa lama visitor melihat laman review product)
+- DeviceType (jenis device yang digunakan)

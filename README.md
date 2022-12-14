@@ -16,10 +16,13 @@ Dataset dapat diakses [disini](https://www.kaggle.com/datasets/imakash3011/onlin
 
 ## **Prerequisites**
 
-- Numpy version: 1.21.5
-- Pandas version: 1.4.2
-- Matplotlib version: 3.5.1
-- Seaborn version: 0.11.2
+- Numpy version: `1.21.5`
+- Pandas version: `1.4.2`
+- Matplotlib version: `3.5.1`
+- Seaborn version: `0.11.2`
+- Sklearn version: `1.0.2`
+- Xgboost version: `0.90`
+- Shap version: `0.41.0`
 
 ## **Exploratory Data Analysis (EDA)**
 
@@ -163,3 +166,34 @@ Berikut rekomendasi fitur-fitur yang jika tersedia kami yakin dapat membantu mel
 menyesuaikan tampilan website untuk visitor dengan internet low speed, karena laman yang lama dimuat cenderung membuat visitor meninggalkan laman dengan cepat)
 - ProductReview (berapa sering dan berapa lama visitor melihat laman review product)
 - DeviceType (jenis device yang digunakan)
+
+## **Modeling**
+
+Pada tahap ini kami mencoba beberapa algoritma klasifikasi yang mungkin digunakan untuk dataset yang dimiliki. Beberapa
+algoritma yang kami coba adalah Logistic Regression, Gaussian Naive Bayes, Decision Tree, Random Forest, 
+Support Vector Machine, K-Nearest Neighbors, Ada Boost, dan XG Boost.
+
+Dari semua algoritma yang dicoba, dipilih XG Boost sebagai model final yang akan diimplementasikan, model ini dilatih menggunakan hyperparameter default tanpa tuning dengan skor AUC sebesar 91%. Model dengan AUC sebesar itu sudah  cukup untuk digunakan memprediksi apakah customer akan melakukan purchase atau tidak berdasarkan data yang masuk di masa mendatang. Hasil pediksi dari model ini akan digunakan untuk membantu memutuskan strategi marketing yang cocok.
+
+### **Fitur Terpenting**
+
+Dari model XG Boost yang telah dilatih, didapatkan 4 fitur terpenting yang paling berpengaruh dalam model yaitu PageValues, ExitRates, Administrative, dan ProductRelated.
+
+### **Business Insight dari Model**
+
+Berdasarkan fitur-fitur terpenting di atas, kami dapatkan insight sebagai berikut.
+
+1. Jika nilai Page Values semakin tinggi, maka kemungkinan pengunjung untuk purchase juga semakin tinggi.
+2. Semakin tinggi exit rate, maka kemungkinan untuk purchase semakin rendah.
+3. Semakin sedikit page Administrative yang dikunjungi, maka semakin tinggi kemungkinan pengunjung untuk purchase.
+4. Semakin banyak page Product Related yang dikunjungi, maka kemungkinan pengunjung untuk purchase semakin tinggi.
+
+### **Action Items**
+
+Berdasarkan insight yang kami temukan, kami merekomendasikan beberapa action items yang mungkin dapat membantu 
+bisnis yaitu sebagai berikut.
+
+1. Karena page dengan value yang tinggi akan leading ke purchase, pilih page dengan values tinggi untuk marketing campaign sesuai dengan target visitor.
+2. Lakukan optimasi desain UI/UX untuk menurunkan exit rate dan bounce rate.
+3. Kurangi tindakan berlebih yang membuat visitor sering membuka page administrative. Gunakan penempatan pop up page administrative yang sesuai (misal akhir sesi).
+4. Karena page Product Related leading ke purchase, maka perlu optimalisasi agar rekomendasi produk yang diberikan akurat sesuai dengan keinginan customer/visitor.

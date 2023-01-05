@@ -2,11 +2,9 @@
 
 ## **Background**
 
-Perusahaan Leslar memiliki conversion rate yang tinggi diangka 15% pada tahun pertama. Namun,
-Perusahaan Leslar memiliki masalah untuk mengetahui pola perilaku dari visitor yang berpotensi
-untuk membeli produk perusahaan. Jadi, Perusahaan meminta Tim Data Scientist untuk
-membuatkan model yang bisa memprediksi apakah visitor akan membeli produk atau tidak
-untuk digunakan di tahun berikutnya.
+Perusahaan Leslar memiliki conversion rate  diangka 15% pada tahun pertama. 
+Pada tahun kedua perusahaan menargetkan Peningkatan conversion rate sebesar 10%. 
+Tim data scientist diminta membuat model machine learning untuk  membantu mencapai target tersebut.
 
 ## **Dataset**
 
@@ -186,14 +184,14 @@ Berdasarkan fitur-fitur terpenting di atas, kami dapatkan insight sebagai beriku
 1. Jika nilai Page Values semakin tinggi, maka kemungkinan pengunjung untuk purchase juga semakin tinggi.
 2. Semakin tinggi exit rate, maka kemungkinan untuk purchase semakin rendah.
 3. Semakin sedikit page Administrative yang dikunjungi, maka semakin tinggi kemungkinan pengunjung untuk purchase.
-4. Semakin banyak page Product Related yang dikunjungi, maka kemungkinan pengunjung untuk purchase semakin tinggi.
+4. Semakin banyak page Product Related yang dikunjungi, maka kemungkinan pengunjung untuk purchase semakin rendah.
 
 ### **Action Items**
 
 Berdasarkan insight yang kami temukan, kami merekomendasikan beberapa action items yang mungkin dapat membantu 
 bisnis yaitu sebagai berikut.
 
-1. Karena page dengan value yang tinggi akan leading ke purchase, pilih page dengan values tinggi untuk marketing campaign sesuai dengan target visitor.
-2. Lakukan optimasi desain UI/UX untuk menurunkan exit rate dan bounce rate.
-3. Kurangi tindakan berlebih yang membuat visitor sering membuka page administrative. Gunakan penempatan pop up page administrative yang sesuai (misal akhir sesi).
-4. Karena page Product Related leading ke purchase, maka perlu optimalisasi agar rekomendasi produk yang diberikan akurat sesuai dengan keinginan customer/visitor.
+1. Untuk sesi dengan page value tinggi namun tidak purchase (abandoned cart), bisa diberikan email remainder untuk melanjutkan transaksi.
+2. Lakukan optimasi file gambar dan visual lainnya untuk mempercepat page load time (mengurangi exit rates).
+3. Minimalisir transaction error issue dan permudah proses transaksi agar visitor tidak terlalu sering membuka page administrative.
+4. Optimasi sistem product recommendation agar sesuai dengan tiap-tiap visitor.
